@@ -28,3 +28,11 @@ app.get('/listing/:id', (req, res) => {
 app.listen(3030, () => {
   console.log('Proxy listening on port 3030');
 });
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// var proxy = require('http-proxy').createProxyServer();
+
+// let serverOne = 'http://localhost:3002';
+
+
+// app.all('/api/listing/:id', (req, res) => proxy.web(req, res, {target:serverOne}));

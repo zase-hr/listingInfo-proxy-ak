@@ -3,17 +3,18 @@ config:
   # processor: "./myrandom.js"
   phases:
     - duration: 60
-      arrivalRate: 10
+      arrivalRate: 140
+
 scenarios:
-  - weight: 100/100
+  - weight: 0/100
     name: "GET Listing"
     flow:
     - get:
         url: "/listing/{{ $randomNumber(1,10000000) }}"
-  - weight: 0/100
+  - weight: 100 /100
     name: "POST Listing"
     flow:
-      - function: 'generateData'
+      # - function: 'generateData'
       - post:
           url: "/listing/"
           json:
