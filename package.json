@@ -4,6 +4,7 @@
   "description": "> Project description",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,9 +19,12 @@
   },
   "homepage": "https://github.com/hacker-home/Airbnb-booking-proxy#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "http-proxy-middleware": "^0.19.1",
-    "nodemon": "^1.19.1"
+    "newrelic": "^5.10.0",
+    "nodemon": "^1.19.1",
+    "request": "^2.88.0"
   }
 }

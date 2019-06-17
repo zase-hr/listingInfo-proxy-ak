@@ -1,0 +1,25 @@
+config:
+  target: 'http://127.0.0.1:3030'
+  # processor: "./myrandom.js"
+  phases:
+    - duration: 60
+      arrivalRate: 140
+
+scenarios:
+  - weight: 0/100
+    name: "GET Listing"
+    flow:
+    - get:
+        url: "/listing/{{ $randomNumber(1,10000000) }}"
+  - weight: 100 /100
+    name: "POST Listing"
+    flow:
+      # - function: 'generateData'
+      - post:
+          url: "/listing/"
+          json:
+            city: "{{ city }}"
+            title: "{{ title }}"
+            numberOfGuests: "{{ numberOfGuests }}"
+            isGreatLocation: "{{ isGreatLocation }}"
+            description: "{{ description }}"
