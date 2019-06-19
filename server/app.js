@@ -13,6 +13,15 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(cors());
 
+let bundleContent;
+request("http://172.31.46.42:3002/bundle.js", (err, response, body) => {
+  bundleContent = body;
+  console.log('bundle loaded and cached from server');
+});
+
+app.get('/bundle.js', (req, res) => {
+  res.status(200).send(bundleContent);
+});
 
 app.get('/listing/:id', (req, res) => {
   let {id} = req.params;
