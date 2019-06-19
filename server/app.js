@@ -16,7 +16,7 @@ app.use(cors());
 
 app.get('/listing/:id', (req, res) => {
   let {id} = req.params;
-  request("http://127.0.0.1:3002/listing/" + id  ,(error, response, body) => {
+  request("http://18.188.17.117:3002/listing/" + id  ,(error, response, body) => {
     if (error) {
       res.status(404).send(error);
     } else {
