@@ -13,8 +13,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(cors());
 
+const LB_ADDRESS = '/api';  // http://172.31.46.42:3002
+
 let bundleContent;
-request("http://172.31.46.42:3002/bundle.js", (err, response, body) => {
+request(LB_ADDRESS+"/bundle.js", (err, response, body) => {
   bundleContent = body;
   console.log('bundle loaded and cached from server');
 });
@@ -25,7 +27,7 @@ app.get('/bundle.js', (req, res) => {
 
 app.get('/listing/:id', (req, res) => {
   let {id} = req.params;
-  request("http://172.31.46.42:3002/listing/" + id  ,(error, response, body) => {
+  request(LB_ADDRESS+"/listing/" + id  ,(error, response, body) => {
     if (error) {
       res.status(404).send(error);
     } else {
