@@ -13,7 +13,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(cors());
 
-const LB_ADDRESS = 'http://localhost/api';  // http://172.31.46.42:3002
+// const LB_ADDRESS = 'http://localhost/api';  // http://172.31.46.42:3002
+const LB_ADDRESS = 'http://localhost/';
+
 
 let bundleContent;
 request(LB_ADDRESS+"/bundle.js", (err, response, body) => {
